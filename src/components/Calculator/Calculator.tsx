@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { ButtonComponent, ImageButtonComponent } from "../Button/Button";
 import {
   CalculatorButtons,
@@ -13,8 +13,13 @@ export function Calculator() {
   const [result, setResult] = useState('');
   const [finalResult, setFinalResult] = useState('');
 
-  function handleClick(e) {
-    setResult(result.concat(e.target.value));
+  function handleClick(event: React.ChangeEvent<HTMLButtonElement>) {
+    setResult(result.concat(event.target.value));
+  }
+
+  function handleClear() {
+    setResult("");
+    setFinalResult("");
   }
 
   function handleBackspace() {
@@ -61,7 +66,7 @@ export function Calculator() {
   }
 
   function handleMod() {
-    setResult(result.concat("%"));
+    setResult(result.concat("mod"));
   }
 
   function handlePi() {
@@ -76,7 +81,6 @@ export function Calculator() {
       .replace("*3.14", "π ")
       .replace("*", " x ")
       .replace("/", " ÷ ")
-      .replace("%", " mod ")
       .replace("+", " + ")
       .replace("-", " - ")
       .replace(".", ",");
@@ -84,7 +88,7 @@ export function Calculator() {
 
   return (
     <CalculatorStyled>
-      <CalculatorHeader />
+      <CalculatorHeader click={handleClear}/>
       <Interface>
         <FinalResult>{formatResult(finalResult)}</FinalResult>
         <Result>{formatResult(result)}</Result>

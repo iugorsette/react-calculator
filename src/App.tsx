@@ -5,7 +5,7 @@ function App() {
   document.title = "Calculadora";
   return (
     <GlobalStyled>
-      <Calculator></Calculator>
+      <Calculator/>
     </GlobalStyled>
   );
 }

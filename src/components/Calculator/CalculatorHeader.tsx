@@ -1,26 +1,26 @@
 import { HeaderButton, ButtonComponent } from "../Button/Button";
 import { StyledCalculatorHeader, TopButtons } from "./CalculatorStyled";
 
-export function CalculatorHeader() {
+export function CalculatorHeader({click}: {click: () => void}) {
   return (
     <StyledCalculatorHeader>
       <ButtonComponent
-        value="Desfazer"
-        click={() => console.log("funcionou")}
+        value="Limpar"
+        click={click}
       ></ButtonComponent>
       <TopButtons>
         {" "}
         <HeaderButton
           type="-"
-          click={() => console.log("funcionou")}
+          click={() => console.log("minimizar")}
         ></HeaderButton>
         <HeaderButton
           type="Square"
-          click={() => console.log("funcionou")}
+          click={() => console.log("maximizar")}
         ></HeaderButton>
         <HeaderButton
           type="x"
-          click={() => console.log("funcionou")}
+          click={() => console.log("fechar")}
         ></HeaderButton>
       </TopButtons>
     </StyledCalculatorHeader>

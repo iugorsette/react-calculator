@@ -3,9 +3,9 @@ import { ButtonStyled, HeaderButtonStyled } from "./ButtonStyled";
 
 interface ButtonProps {
   type?: string;
-  value?: any;
+  value?: string | number;
   color?: string;
-  click: any;
+  click: (e?: any) => void;
   id?: string;
 }
 
@@ -16,7 +16,11 @@ export function ButtonComponent({ click, color, value, id }: ButtonProps) {
     </ButtonStyled>
   );
 }
-export function ImageButtonComponent({ type, color, click }: ButtonProps) {
+export function ImageButtonComponent({
+  type,
+  color,
+  click,
+}: ButtonProps): JSX.Element {
   return (
     <ButtonStyled color={color} onClick={click}>
       {type === "backspace" ? (
